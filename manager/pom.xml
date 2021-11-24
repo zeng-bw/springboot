@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.gunanyi</groupId>
+    <artifactId>manager</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.5.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <modules>
+        <module>gunanyi-system</module>
+        <module>gunanyi-base</module>
+        <module>gunanyi-demo</module>
+    </modules>
+    <properties>
+        <gunanyiBoot.version>1.0-SNAPSHOT</gunanyiBoot.version>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
+        <spring-cloud-alibaba.version>2.2.3.RELEASE</spring-cloud-alibaba.version>
+        <xxl-job-core.version>2.2.0</xxl-job-core.version>
+        <fastjson.version>1.2.75</fastjson.version>
+        <knife4j-spring-boot-starter.version>2.0.4</knife4j-spring-boot-starter.version>
+        <knife4j-spring-ui.version>2.0.4</knife4j-spring-ui.version>
+        <postgresql.version>42.2.6</postgresql.version>
+        <ojdbc6.version>11.2.0.3</ojdbc6.version>
+        <sqljdbc4.version>4.0</sqljdbc4.version>
+        <mysql-connector-java.version>8.0.21</mysql-connector-java.version>
+        <dynamic-datasource-spring-boot-starter.version>3.2.0</dynamic-datasource-spring-boot-starter.version>
+        <hutool-all.version>5.3.8</hutool-all.version>
+        <redisson.version>3.13.6</redisson.version>
+        <commons-beanutils.version>1.9.4</commons-beanutils.version>
+        <guava.version>29.0-jre</guava.version>
+        <mybatis-plus.version>3.4.1</mybatis-plus.version>
+        <druid.version>1.1.22</druid.version>
+        <commons.version>2.6</commons.version>
+        <aliyun-java-sdk-dysmsapi.version>1.0.0</aliyun-java-sdk-dysmsapi.version>
+        <aliyun.oss.version>3.6.0</aliyun.oss.version>
+        <shiro.version>1.7.0</shiro.version>
+        <java-jwt.version>3.11.0</java-jwt.version>
+        <shiro-redis.version>3.1.0</shiro-redis.version>
+        <codegenerate.version>1.2.5</codegenerate.version>
+        <autopoi-web.version>1.2.2</autopoi-web.version>
+        <minio.version>4.0.0</minio.version>
+        <justauth-spring-boot-starter.version>1.3.2</justauth-spring-boot-starter.version>
+        <dom4j.version>1.6.1</dom4j.version>
+        <qiniu-java-sdk.version>7.2.23</qiniu-java-sdk.version>
+        <pinyin4j.version>2.5.1</pinyin4j.version>
+    </properties>
+
+    <dependencies>
+        <!-- SpringBoot Web容器 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.gunanyi</groupId>
+                <artifactId>gunanyi-base-core</artifactId>
+                <version>${gunanyiBoot.version}</version>
+            </dependency>
+            <!-- system 模块-->
+            <dependency>
+                <groupId>org.gunanyi</groupId>
+                <artifactId>gunanyi-system</artifactId>
+                <version>${gunanyiBoot.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <!-- 打包跳过测试 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+            <!-- 避免font文件的二进制文件格式压缩破坏 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <nonFilteredFileExtensions>
+                        <nonFilteredFileExtension>woff</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>woff2</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>eot</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>ttf</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>svg</nonFilteredFileExtension>
+                    </nonFilteredFileExtensions>
+                </configuration>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                    <include>**/*.json</include>
+                    <include>**/*.ftl</include>
+                    <include>**/*.xlsx</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+
+</project>
