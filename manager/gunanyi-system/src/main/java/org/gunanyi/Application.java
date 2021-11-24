@@ -1,10 +1,12 @@
-package org.gunanyi.application;
+package org.gunanyi;
 
 import lombok.extern.slf4j.Slf4j;
 import org.gunanyi.common.util.oConvertUtils;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.env.Environment;
 
 import java.net.InetAddress;
@@ -17,6 +19,7 @@ import java.net.UnknownHostException;
  */
 @SpringBootApplication
 @Slf4j
+@ComponentScan(basePackages = {"org.gunanyi.controller"})
 public class Application {
     public static void main(String[] args) throws UnknownHostException {
         ConfigurableApplicationContext application = SpringApplication.run(Application.class, args);

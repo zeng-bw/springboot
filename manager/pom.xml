@@ -83,6 +83,11 @@
                 <artifactId>gunanyi-system</artifactId>
                 <version>${gunanyiBoot.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.gunanyi</groupId>
+                <artifactId>gunanyi-demo</artifactId>
+                <version>${gunanyiBoot.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <build>

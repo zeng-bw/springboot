@@ -6,9 +6,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.gunanyi.entity.JeecgDemo;
 import org.gunanyi.server.IJeecgDemoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -20,7 +22,8 @@ import java.util.List;
  * @Version:V2.0
  */
 @Slf4j
-@RequestMapping("/test/jeecgDemo")
+@Controller
+@RequestMapping("/jeecgDemo")
 public class JeecgDemoController {
     @Autowired
     private IJeecgDemoService jeecgDemoService;

@@ -1,5 +1,5 @@
 server:
-  port: 8088
+  port: 8089
 spring:
   datasource:
     username: root
@@ -26,4 +26,15 @@ spring:
     maxPoolPreparedStatementPerConnectionSize: 20
     useGlobalDataSourceStat: true
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500# 配置StatFilter
+mybatis-plus:
+  mapper-locations: classpath:/org/*/mapper/*/*.xml
+  typeAliasesPackage: org.gunanyi.entity
+  global-config:
+    id-type: 2
+    field-strategy: 2
+    db-column-underline: true
+    refresh-mapper: true
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
 

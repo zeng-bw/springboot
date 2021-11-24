@@ -18,9 +18,9 @@
             <artifactId>gunanyi-demo</artifactId>
             <version>${gunanyiBoot.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.gunanyi</groupId>
-            <artifactId>gunanyi-base-core</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.gunanyi</groupId>-->
+<!--            <artifactId>gunanyi-base-core</artifactId>-->
+<!--        </dependency>-->
     </dependencies>
 </project>

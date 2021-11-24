@@ -20,7 +20,6 @@
         <dependency>
             <groupId>org.gunanyi</groupId>
             <artifactId>gunanyi-base-core</artifactId>
-            <version>${gunanyiBoot.version}</version>
         </dependency>
     </dependencies>
 </project>
