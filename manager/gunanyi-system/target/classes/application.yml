@@ -37,4 +37,7 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
     cache-enabled: false
-
+#Mybatis输出sql日志
+logging:
+  level:
+    org.gunanyi.*.mapper: debug

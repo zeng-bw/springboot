@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.env.Environment;
 
 import java.net.InetAddress;
@@ -19,7 +20,7 @@ import java.net.UnknownHostException;
  */
 @SpringBootApplication
 @Slf4j
-@ComponentScan(basePackages = {"org.gunanyi.controller"})
+@EnableAspectJAutoProxy(proxyTargetClass=true)
 public class Application {
     public static void main(String[] args) throws UnknownHostException {
         ConfigurableApplicationContext application = SpringApplication.run(Application.class, args);

@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import xyz.gunanyi.currency.annotation.OperLog;
+import xyz.gunanyi.currency.utils.OprLogConst;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -22,7 +24,7 @@ import java.util.List;
  * @Version:V2.0
  */
 @Slf4j
-@Controller
+@RestController
 @RequestMapping("/jeecgDemo")
 public class JeecgDemoController {
     @Autowired
@@ -40,6 +42,7 @@ public class JeecgDemoController {
      */
     @ApiOperation(value = "获取Demo数据列表", notes = "获取所有Demo数据列表")
     @GetMapping(value = "/list")
+    @OperLog(operModul = "测试",operType = OprLogConst.QUR,isPreData=true,clz = JeecgDemo.class,onlyId = "id")
     public List<JeecgDemo> list(JeecgDemo jeecgDemo, @RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo, @RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize,
                                 HttpServletRequest req) {
         QueryWrapper<JeecgDemo> queryWrapper = new QueryWrapper<>();
